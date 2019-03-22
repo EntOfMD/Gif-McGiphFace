@@ -21,6 +21,12 @@
         <meta name="copyright" content="© 2019 Ashell Fernando " />
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"
+        />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -34,5 +40,72 @@
         ></script>
         <title>Gif McGiphFace - GIPHY API app</title>
     </head>
-    <body></body>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+            <a class="navbar-brand" href="index.html">Gif McGiphFace</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline ml-auto my-lg-0">
+                    <input
+                        class="form-control mr-sm-2 text-info  "
+                        type="search"
+                        placeholder="Search Gifs"
+                        aria-label="Search Gifs"
+                    />
+                    <button
+                        class="btn btn-outline-success my-2 my-sm-0"
+                        type="submit"
+                    >
+                        Search
+                    </button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div id="row-1" class="row">
+                <div class="col-md-auto">
+                    <div
+                        class="card border-dark mb-3"
+                        style="max-width: 18rem;"
+                    >
+                        <div class="card-header text-center">
+                            Quick Links:
+                            <p class="my-0">
+                                <i class="fas fa-download"> Download</i> <br />
+                                <i class="fas fa-external-link-alt">
+                                    View on GIPHY</i
+                                >
+                            </p>
+                        </div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title text-center">
+                                <img
+                                    src="https://media.giphy.com/media/pByBDcbskvfKo/giphy.gif"
+                                    alt="spirited away no face"
+                                />
+                                example img
+                            </h5>
+                            <p class="card-text text-center">
+                                Rating goes here
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
+
+}
