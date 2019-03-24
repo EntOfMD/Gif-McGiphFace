@@ -21,6 +21,14 @@ const variables = {
     gif_meta: []
 };
 const fx = {
+    showToDOM: () => {
+        let gif_img = $('<img>');
+        variables.gif_meta.forEach(e => {
+            gif_img.attr('src', e.url);
+
+            $('#gif_display').prepend(gif_img);
+        });
+    },
     ConstructGifs: data => {
         for (i = 0; i < data.length; i++) {
             var gif_data = new Gif(
@@ -31,16 +39,14 @@ const fx = {
                 // data[i].still,
                 // data[i].original
             );
-            // variables.gif_meta = Object.entries(gif_data);
-            // console.log(variables.gif_meta);
-            console.log(gif_data);
-            let gif_img = $('<img>');
-            gif_img.attr('src', gif_data.url);
-            $('#gif_display').prepend(gif_img);
+            variables.gif_meta.push(gif_data);
+            fx.showToDOM(data);
         }
     },
     fetchGifs: () => {
+        // let q = $(this).attr('data-name');  <--- THIS DOESN'T EVER WORK FOR ME.. IT SHOWS UNDEFINED..
         let q = $(this).attr('data-name');
+
         let APIKEY = `OLDkiP8Zn4nD6tLAVIcPIvuYklXx0t6S`;
 
         let qURL =
@@ -72,7 +78,7 @@ const fx = {
             var genBtn = $('<button>');
             genBtn.addClass('btn btn-outline-info btn-sm mx-1 user_gen_btn');
             genBtn.attr('data-name', topics[i]);
-            genBtn.text(topics[i]);
+            genBtn.html(topics[i]);
             $('#buttons').append(genBtn);
         }
     }
@@ -96,4 +102,5 @@ $(function() {
 
     //inital rendering of hard-coded topics
     fx.renderButtons();
+    console.log($('.user_gen_btn')[0].innerText);
 });
