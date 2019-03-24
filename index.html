@@ -42,7 +42,7 @@
         <title>Gif McGiphFace - GIPHY API app</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Gif McGiphFace</a>
             <button
                 class="navbar-toggler"
@@ -60,11 +60,14 @@
                 <form class="form-inline ml-auto my-lg-0">
                     <input
                         class="form-control mr-sm-2 text-info  "
-                        type="search"
+                        type="text"
+                        id="user_input"
                         placeholder="Search Gifs"
                         aria-label="Search Gifs"
+                        autocomplete="off"
                     />
                     <button
+                        id="user_btn"
                         class="btn btn-outline-success my-2 my-sm-0"
                         type="submit"
                     >
@@ -75,34 +78,22 @@
         </nav>
 
         <div class="container">
-            <div id="row-1" class="row">
-                <div class="col-md-auto">
-                    <div
-                        id="card1"
-                        class="card border-dark mb-3"
-                        style="max-width: 18rem;"
-                    >
+            <div class="row">
+                <div id="search-col" class="col-md-12">
+                    <div id="search-container" class="card border-dark my-3">
                         <div class="card-header text-center">
-                            Quick Links:
-                            <p class="my-0">
-                                <i class="fas fa-download"> Download</i> <br />
-                                <i class="fas fa-external-link-alt">
-                                    View on GIPHY</i
-                                >
-                            </p>
+                            Show me Gifs for...
                         </div>
-                        <div class="card-body text-dark">
-                            <h5 class="card-title text-center">
-                                <img
-                                    src="https://media.giphy.com/media/pByBDcbskvfKo/giphy.gif"
-                                    alt="spirited away no face"
-                                />
-                                example img
-                            </h5>
-                            <p class="card-text text-center">
-                                Rating goes here
-                            </p>
+                        <div class="card-body text-dark text-center">
+                            <div id="buttons"></div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron text-center">
+                        GIFS GO HERE
                     </div>
                 </div>
             </div>
@@ -110,5 +101,3 @@
         <script src="./assets/js/app.js"></script>
     </body>
 </html>
-
-}

@@ -10,3 +10,11 @@ body {
 #card1 {
     display: none;
 }
+
+#search-container {
+    min-height: 10vh;
+}
+
+.jumbotron {
+    padding: 20px;
+}
