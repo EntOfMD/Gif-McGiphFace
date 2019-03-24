@@ -76,7 +76,7 @@ const fx = {
         $('#buttons').empty();
         for (i = 0; i < topics.length; i++) {
             var genBtn = $('<button>');
-            genBtn.addClass('btn btn-outline-info btn-sm mx-1 user_gen_btn');
+            genBtn.addClass('btn btn-outline-danger btn-sm mx-1 user_gen_btn');
             genBtn.attr('data-name', topics[i]);
             genBtn.html(topics[i]);
             $('#buttons').append(genBtn);
