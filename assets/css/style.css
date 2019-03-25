@@ -1,20 +1,24 @@
 body {
-    /* background-image: url('../images/background.jpg'); */
-    background-image: url('../images/background.gif');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    min-width: 100%;
-    min-height: 100vh;
+  /* background-image: url('../images/background.jpg'); */
+  background-image: url('../images/background.gif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100vh;
 }
 
 #card1 {
-    display: none;
+  display: none;
 }
 
 #search-container {
-    min-height: 10vh;
+  min-height: 10vh;
 }
 
 .jumbotron {
-    padding: 20px;
+  padding: 20px;
+}
+
+.tall {
+  max-width: 200px;
 }
