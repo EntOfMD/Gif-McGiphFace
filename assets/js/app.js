@@ -40,12 +40,12 @@ const fx = {
                 // data[i].original
             );
             variables.gif_meta.push(gif_data);
-            fx.showToDOM(data);
+            fx.showToDOM();
         }
     },
-    fetchGifs: () => {
+    fetchGifs: name => {
         // let q = $(this).attr('data-name');  <--- THIS DOESN'T EVER WORK FOR ME.. IT SHOWS UNDEFINED..
-        let q = $(this).attr('data-name');
+        let q = name;
 
         let APIKEY = `OLDkiP8Zn4nD6tLAVIcPIvuYklXx0t6S`;
 
@@ -77,18 +77,15 @@ const fx = {
         for (i = 0; i < topics.length; i++) {
             var genBtn = $('<button>');
             genBtn.addClass('btn btn-outline-danger btn-sm mx-1 user_gen_btn');
-            genBtn.attr('data-name', topics[i]);
-            genBtn.html(topics[i]);
+            // genBtn.attr('data-name', topics[i]);
+            genBtn.text(topics[i]);
             $('#buttons').append(genBtn);
         }
+        fx.fetchGifs($(this).text());
     }
 };
 
 $(function() {
-    //this clears out the search field when user clicks it
-    $('input').focus(() => {
-        $('#user_input').val('');
-    });
     //WHEN the user clicks this, badabing dababoom, magic happens and puts the search term into the topics Arr and display the topic list
     $('#user_btn').click(e => {
         e.preventDefault();
@@ -97,10 +94,10 @@ $(function() {
             .trim();
         topics.push(searchTerm);
         fx.renderButtons();
+        $('#user_input').val('');
     });
-    $(document).on('click', '.user_gen_btn', fx.fetchGifs);
+    // $(document).on('click', '.user_gen_btn', fx.fetchGifs);
 
     //inital rendering of hard-coded topics
     fx.renderButtons();
-    console.log($('.user_gen_btn')[0].innerText);
 });
