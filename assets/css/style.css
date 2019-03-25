@@ -21,7 +21,8 @@ body {
 }
 
 .tall {
-    max-width: 400px;
+    max-width: 500px;
+
     border-radius: 3%;
 }
 .title {
@@ -36,3 +37,9 @@ body {
 /* #gif_display {
     max-width: 50%;
 } */
+
+@media screen and (min-width: 400px) {
+    .tall {
+        max-width: 300px;
+    }
+}
