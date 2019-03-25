@@ -17,10 +17,11 @@ body {
 
 .jumbotron {
     padding: 20px;
+    display: none;
 }
 
 .tall {
-    max-width: 200px;
+    max-width: 400px;
     border-radius: 3%;
 }
 .title {
@@ -32,6 +33,6 @@ body {
     text-align: center;
 } */
 
-#gif_display {
+/* #gif_display {
     max-width: 50%;
-}
+} */

@@ -1,11 +1,11 @@
 let topics = [
     'zenyatta',
-    'cats',
-    'birds',
-    'pigs',
-    'hamsters',
-    'elephants',
-    'lions'
+    'Spirited Away',
+    'Howls Moving Castle',
+    'My Neighbor Totoro',
+    'Princess Mononoke',
+    'Grave of the Fireflies',
+    'Trainspotting'
 ];
 
 function Gif(id, rating, title, url, still, original) {
@@ -42,12 +42,27 @@ const fx = {
             }</strong></p>
           </div></div>`);
 
-            gif_img.addClass('mx-3 my-3 tall');
+            gif_img.addClass('mx-3 my-3 tall gif');
             gif_img.attr('src', gif_data.still);
+            gif_img.attr('data-still', gif_data.still);
+            gif_img.attr('data-animate', gif_data.original);
             gif_card.addClass('single');
             $('#gif_display').prepend(gif_card);
-            console.log(data);
+            fx.animate();
         }
+    },
+
+    animate: function() {
+        $('.gif').on('click', function() {
+            var state = $(this).attr('data-state');
+            if (state === 'still') {
+                $(this).attr('src', $(this).attr('data-animate'));
+                $(this).attr('data-state', 'animate');
+            } else {
+                $(this).attr('src', $(this).attr('data-still'));
+                $(this).attr('data-state', 'still');
+            }
+        });
     },
     fetchGifs: function() {
         let q = $(this).attr('data-name');
@@ -75,6 +90,7 @@ const fx = {
             } else {
                 console.log('no');
             }
+            $('.jumbotron').show();
         });
     },
     renderButtons: function() {
@@ -93,6 +109,7 @@ $(function() {
     //WHEN the user clicks this, badabing dababoom, magic happens and puts the search term into the topics Arr and display the topic list
     $('#user_btn').click(e => {
         e.preventDefault();
+
         let searchTerm = $('#user_input')
             .val()
             .trim();
