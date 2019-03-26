@@ -34,7 +34,7 @@ const fx = {
             let gif_card = $('<div>');
 
             gif_card.prepend(`<div class="card" style="width: 18rem;">
-                               `);
+                         `);
             gif_card.append(gif_img);
             gif_card.append(` <div class="card-body">
             <p class="card-text title">${gif_data.title}. Rated: <strong>${
