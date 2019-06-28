@@ -1,3 +1,4 @@
+// pre-defined list of topics, later to be converted to buttons
 let topics = [
     'zenyatta',
     'Spirited Away',
@@ -8,6 +9,7 @@ let topics = [
     'Trainspotting'
 ];
 
+// a constructor.. this wasn't asked or taught at the class, but it's something I knew at the time
 function Gif(id, rating, title, url, still, original) {
     this.id = id;
     this.rating = rating;
@@ -17,7 +19,9 @@ function Gif(id, rating, title, url, still, original) {
     this.original = original;
 }
 
+// one object to house all the functions
 const fx = {
+    // this function  takes in giphy response and spits out objects with cards attached
     ConstructGifs: function(data) {
         $('#gif_display').empty();
         for (i = 0; i < data.length; i++) {
@@ -35,23 +39,22 @@ const fx = {
 
             gif_card.prepend(`<div class="card" style="width: 18rem;">
                          `);
-            gif_card.append(gif_img);
-            gif_card.append(` <div class="card-body">
-            <p class="card-text title">${gif_data.title}. Rated: <strong>${
-                gif_data.rating
-            }</strong></p>
-          </div></div>`);
 
             gif_img.addClass('mx-3 my-3 tall gif');
             gif_img.attr('src', gif_data.still);
             gif_img.attr('data-still', gif_data.still);
             gif_img.attr('data-animate', gif_data.original);
             gif_card.addClass('single');
+            gif_card.append(gif_img);
+            gif_card.append(` <div class="card-body">
+                         <p class="card-text title">${
+                             gif_data.title
+                         }. Rated: <strong>${gif_data.rating}</strong></p>
+                       </div></div>`);
             $('#gif_display').prepend(gif_card);
-            fx.animate();
         }
     },
-
+    // this function is responsible for animating or making the gifs still on click
     animate: function() {
         $('.gif').on('click', function() {
             var state = $(this).attr('data-state');
@@ -64,6 +67,7 @@ const fx = {
             }
         });
     },
+    // this function is responsible for doing ajax calls
     fetchGifs: function() {
         let q = $(this).attr('data-name');
 
@@ -74,7 +78,7 @@ const fx = {
             APIKEY +
             '&q=' +
             q +
-            '&limit=10&offset=0&rating=PG&lang=en';
+            '&limit=10&offset=0&rating=R&lang=en';
 
         $.ajax({
             url: qURL,
@@ -93,11 +97,14 @@ const fx = {
             $('.jumbotron').show();
         });
     },
+    // last is one to spit out buttons of pre-defined array on top
     renderButtons: function() {
         $('#buttons').empty();
         for (i = 0; i < topics.length; i++) {
             var genBtn = $('<button>');
-            genBtn.addClass('btn btn-outline-danger btn-sm mx-1 user_gen_btn');
+            genBtn.addClass(
+                'btn btn-outline-danger btn-sm mx-1 user_gen_btn font-weight-bold text-dark'
+            );
             genBtn.attr('data-name', topics[i]);
             genBtn.text(topics[i]);
             $('#buttons').append(genBtn);
@@ -117,8 +124,9 @@ $(function() {
         fx.renderButtons();
         $('#user_input').val('');
     });
-    $(document).on('click', '.user_gen_btn', fx.fetchGifs);
-
     //inital rendering of hard-coded topics
     fx.renderButtons();
+
+    $(document).on('click', '.user_gen_btn', fx.fetchGifs);
+    $(document).on('click', 'img', fx.animate);
 });
