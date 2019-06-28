@@ -1,6 +1,6 @@
 body {
     /* background-image: url('../images/background.jpg'); */
-    background-image: url('../images/background.gif');
+    background-image: url('../images/arrow.gif');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     min-width: 100%;
@@ -42,4 +42,11 @@ body {
     .tall {
         max-width: 300px;
     }
+}
+
+p,
+div,
+button {
+    font-weight: 800;
+    font-size: 1rem;
 }
